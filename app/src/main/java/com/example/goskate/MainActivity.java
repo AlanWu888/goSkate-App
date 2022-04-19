@@ -21,30 +21,12 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> tricks;
-    private ArrayAdapter<String> tricksAdapter;
-    private ListView listView_tricks;
-    private Button btn_add_trick;
+    Button btn_customGame, btn_premadeGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        listView_tricks = findViewById(R.id.listView_tricks);
-        btn_add_trick = findViewById(R.id.btn_add_trick);
-
-        btn_add_trick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addItem(view);
-            }
-        });
-
-        tricks = new ArrayList<>();
-        tricksAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tricks);
-        listView_tricks.setAdapter(tricksAdapter);
-        setUpListViewListener();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         // set selected
@@ -70,37 +52,24 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-    }
 
-    private void setUpListViewListener() {
-        listView_tricks.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        // add button functionality
+        btn_customGame = findViewById(R.id.btn_customGame);
+        btn_premadeGame = findViewById(R.id.btn_premadeGame);
+
+        btn_customGame.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Context context = getApplicationContext();
-                Toast.makeText(context, "'" + tricks.get(i)  + "' removed", Toast.LENGTH_LONG).show();
-
-                tricks.remove(i);
-                tricksAdapter.notifyDataSetChanged();
-                return true;
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CustomGameActivity.class));
             }
         });
-    }
 
-    private void addItem(View view) {
-        EditText input = findViewById(R.id.edit_trick_name);
-        String trickText = input.getText().toString();
-
-        if(tricks.contains(trickText)) {
-            Toast.makeText(getApplicationContext(), "Duplicate Trick!", Toast.LENGTH_LONG).show();
-        } else {
-            if (!(trickText.equals(""))) {
-                tricksAdapter.add(trickText);
-                Toast.makeText(getApplicationContext(), "'" + trickText  + "' added", Toast.LENGTH_LONG).show();
-                input.setText("");
-            } else {
-                Toast.makeText(getApplicationContext(), "Please enter a trick", Toast.LENGTH_LONG).show();
+        btn_premadeGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), PresetGameActivity.class));
             }
-        }
-    }
+        });
 
+    }
 }
