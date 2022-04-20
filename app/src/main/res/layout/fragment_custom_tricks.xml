@@ -30,7 +30,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="To add a trick, type it in and submit it using the &quot;Add Trick&quot; button. Once done, press &quot;Play&quot; to use the S.K.A.T.E Dice!"
+            android:text="To add a trick, type it in and submit it using the &quot;Add Trick&quot; button. Add at least five tricks and press &quot;Play&quot; to use the S.K.A.T.E Dice!"
+            android:textAlignment="center"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_diceTitle" />
