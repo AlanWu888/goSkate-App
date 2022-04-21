@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,17 +14,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayCustomGameFragment extends Fragment {
+public class PlayGameFragment extends Fragment {
     private int letters = 0;    // start a letters counter to count letters gained by player
 
-    public PlayCustomGameFragment() {
+    public PlayGameFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_play_custom_game, container, false);
+        View view = inflater.inflate(R.layout.fragment_play_game, container, false);
 
         // define components
         Button btn_make = (Button) view.findViewById(R.id.btn_make);

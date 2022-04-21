@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomTricksFragment extends Fragment {
 
@@ -63,10 +62,10 @@ public class CustomTricksFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 
                 // create new play fragment object with the parameters
-                PlayCustomGameFragment playCustomGameFragment = new PlayCustomGameFragment();
-                playCustomGameFragment.setArguments(bundle);
+                PlayGameFragment playGameFragment = new PlayGameFragment();
+                playGameFragment.setArguments(bundle);
 
-                fragmentTransaction.replace(R.id.custom_game_container, playCustomGameFragment).commit();
+                fragmentTransaction.replace(R.id.custom_game_container, playGameFragment).commit();
             }
         });
 
