@@ -1,7 +1,6 @@
 package com.example.goskate;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
@@ -13,36 +12,29 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.GeoPoint;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private MarkerOptions marker;
-    LatLng centerLocation;
+    private LatLng centerLocation;
 
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore fStore = FirebaseFirestore.getInstance();
-    private CollectionReference collectionReference = fStore.collection("parks");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,10 +74,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         // center location to uk
         centerLocation = new LatLng(51.506751202151534, -0.1271100905535411);
 
-        readDocument();
+        loadParks();
+        loadShops();
+        loadSpots();
     }
 
-    public void readDocument() {
+    private void loadParks() {
         FirebaseFirestore.getInstance()
                 .collection("parks")
                 .get()
@@ -93,6 +87,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                        Log.d("TAG", "Successfully accessed firestore for parks");
                         for (DocumentSnapshot snapshot: snapshotList) {
                             Log.d("TAG", "onSuccess: " + snapshot.getData().toString());
                             Log.d("TAG", snapshot.getId());
@@ -102,7 +97,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                             marker = new MarkerOptions()
                                     .title(snapshot.getString("name"))
                                     .position(new LatLng(geoPoint.getLatitude(), geoPoint.getLongitude()))
-                                    .snippet(snapshot.getString("description"));
+                                    .snippet(snapshot.getString("description"))
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
 
                             mMap.addMarker(marker);
                         }
@@ -114,7 +110,72 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                         Log.e("TAG", "onFailure: ", e);
                     }
                 });
+    }
 
+    private void loadShops() {
+        FirebaseFirestore.getInstance()
+                .collection("shops")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                        Log.d("TAG", "Successfully accessed firestore for parks");
+                        for (DocumentSnapshot snapshot: snapshotList) {
+                            Log.d("TAG", "onSuccess: " + snapshot.getData().toString());
+                            Log.d("TAG", snapshot.getId());
+
+                            GeoPoint geoPoint = snapshot.getGeoPoint("geolocation");
+
+                            marker = new MarkerOptions()
+                                    .title(snapshot.getString("name"))
+                                    .position(new LatLng(geoPoint.getLatitude(), geoPoint.getLongitude()))
+                                    .snippet(snapshot.getString("description"))
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+
+                            mMap.addMarker(marker);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("TAG", "onFailure: ", e);
+                    }
+                });
+    }
+
+    private void loadSpots() {
+        FirebaseFirestore.getInstance()
+                .collection("spots")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                        Log.d("TAG", "Successfully accessed firestore for parks");
+                        for (DocumentSnapshot snapshot: snapshotList) {
+                            Log.d("TAG", "onSuccess: " + snapshot.getData().toString());
+                            Log.d("TAG", snapshot.getId());
+
+                            GeoPoint geoPoint = snapshot.getGeoPoint("geolocation");
+
+                            marker = new MarkerOptions()
+                                    .title(snapshot.getString("name"))
+                                    .position(new LatLng(geoPoint.getLatitude(), geoPoint.getLongitude()))
+                                    .snippet(snapshot.getString("description"))
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+
+                            mMap.addMarker(marker);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("TAG", "onFailure: ", e);
+                    }
+                });
     }
 
     @Override
