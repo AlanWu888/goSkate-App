@@ -7,13 +7,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CustomGameActivity extends AppCompatActivity {
-
-    Button btn_play;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

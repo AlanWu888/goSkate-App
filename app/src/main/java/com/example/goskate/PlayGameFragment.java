@@ -52,6 +52,8 @@ public class PlayGameFragment extends Fragment {
                 // hide the start and instructions prompt when the game starts
                 btn_start.setVisibility(View.INVISIBLE);
                 txt_instructions4.setVisibility(View.INVISIBLE);
+                btn_make.setVisibility(View.VISIBLE);
+                btn_fail.setVisibility(View.VISIBLE);
             }
         });
 
