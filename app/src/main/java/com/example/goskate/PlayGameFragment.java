@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +28,10 @@ public class PlayGameFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_play_game, container, false);
 
         // define components
+        Button btn_start = (Button) view.findViewById(R.id.btn_startGame);
         Button btn_make = (Button) view.findViewById(R.id.btn_make);
         Button btn_fail = (Button) view.findViewById(R.id.btn_fail);
+        TextView txt_instructions4 = (TextView) view.findViewById(R.id.txt_instructions4);
         TextView txt_nextTrick = (TextView) view.findViewById(R.id.txt_nextTrick);
         TextView lbl_S = (TextView) view.findViewById(R.id.lbl_S);
         TextView lbl_K = (TextView) view.findViewById(R.id.lbl_K);
@@ -39,8 +42,18 @@ public class PlayGameFragment extends Fragment {
         Bundle bundle = getArguments();
         ArrayList enteredTricks = bundle.getStringArrayList("allTricks");
 
-        TextView txt_test = (TextView) view.findViewById(R.id.txt_TEST);
-        txt_test.setText(enteredTricks.toString());
+        btn_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nextTrick = getNextTrick(enteredTricks);
+                txt_nextTrick.setText(nextTrick);
+                enteredTricks.remove(nextTrick);
+
+                // hide the start and instructions prompt when the game starts
+                btn_start.setVisibility(View.INVISIBLE);
+                txt_instructions4.setVisibility(View.INVISIBLE);
+            }
+        });
 
         btn_make.setOnClickListener(new View.OnClickListener() {
             @Override

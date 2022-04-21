@@ -4,14 +4,17 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class ChooseDifficultyFragment extends Fragment {
@@ -38,18 +41,94 @@ public class ChooseDifficultyFragment extends Fragment {
         Button btn_hard = (Button) view.findViewById(R.id.btn_hard);
         Button btn_extreme = (Button) view.findViewById(R.id.btn_extreme);
 
+        // play game with easy difficulty
         btn_easy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                trickList.addAll(readTextFiles(dir_easy));
+                playSkate(trickList);
+            }
+        });
 
+        // play game with medium difficulty
+        btn_medium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trickList.addAll(readTextFiles(dir_easy));
+                trickList.addAll(readTextFiles(dir_medium));
+                playSkate(trickList);
+            }
+        });
+
+        // play game with hard difficulty
+        btn_hard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trickList.addAll(readTextFiles(dir_easy));
+                trickList.addAll(readTextFiles(dir_medium));
+                trickList.addAll(readTextFiles(dir_hard));
+                playSkate(trickList);
+            }
+        });
+
+        // play game with extreme difficulty
+        btn_extreme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trickList.addAll(readTextFiles(dir_easy));
+                trickList.addAll(readTextFiles(dir_medium));
+                trickList.addAll(readTextFiles(dir_hard));
+                trickList.addAll(readTextFiles(dir_extreme));
+                playSkate(trickList);
             }
         });
         return view;
     }
 
+    private void playSkate(ArrayList<String> trickNames) {
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList("allTricks", trickNames);
+
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+        // create new play fragment object with the parameters
+        PlayGameFragment playGameFragment = new PlayGameFragment();
+        playGameFragment.setArguments(bundle);
+
+        fragmentTransaction.replace(R.id.preset_game_container, playGameFragment).commit();
+    }
+
     private ArrayList readTextFiles(String filename) {
         // Read textfiles for trick names and return them as an arraylist of String objects
+        ArrayList<String> textTricks = new ArrayList<String>();
 
-        return trickList;
+        /*
+            Code taken from
+                https://stackoverflow.com/questions/9544737/read-file-from-assets
+            by HpTerm, answered Mar 3, 2012 at 8:53
+         */
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(getActivity().getAssets().open(filename)));
+
+            // do reading, usually loop until end of file reading
+            String mLine;
+            while ((mLine = reader.readLine()) != null) {
+                textTricks.add(mLine);
+            }
+        } catch (IOException e) {
+            //log the exception
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    //log the exception
+                }
+            }
+        }
+
+        return textTricks;
     }
 }
