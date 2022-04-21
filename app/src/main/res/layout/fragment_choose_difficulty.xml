@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseDifficultyFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt_instructions3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Good Luck!"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_instructions2" />
+
+        <TextView
+            android:id="@+id/txt_instructions2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="This is the preset S.K.A.T.E dice with increasing difficulty. Choosing one of the following optiosn will allow you to play with an unseen list of tricks."
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_diceTitle3" />
+
+        <TextView
+            android:id="@+id/lbl_diceTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="S.K.A.T.E Dice"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_extreme"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:text="Extreme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_hard" />
+
+        <Button
+            android:id="@+id/btn_easy"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:text="Easy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_instructions3" />
+
+        <Button
+            android:id="@+id/btn_medium"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:text="Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_easy" />
+
+        <Button
+            android:id="@+id/btn_hard"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:text="Hard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_medium" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

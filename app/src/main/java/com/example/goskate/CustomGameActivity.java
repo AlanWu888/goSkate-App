@@ -45,8 +45,6 @@ public class CustomGameActivity extends AppCompatActivity {
             }
         });
 
-        //getSupportFragmentManager().beginTransaction().add(R.id.custom_game_container, new AddTricksFragment()).commit();
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.custom_game_container, new CustomTricksFragment()).commit();
     }

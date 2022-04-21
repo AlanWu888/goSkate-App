@@ -2,6 +2,7 @@ package com.example.goskate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,5 +41,8 @@ public class PresetGameActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.preset_game_container, new ChooseDifficultyFragment()).commit();
     }
 }

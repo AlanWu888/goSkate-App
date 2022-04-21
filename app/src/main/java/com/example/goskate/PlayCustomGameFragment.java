@@ -8,11 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PlayCustomGameFragment extends Fragment {
+    private int letters = 0;    // start a letters counter to count letters gained by player
+
     public PlayCustomGameFragment() {
         // Required empty public constructor
     }
@@ -22,13 +27,102 @@ public class PlayCustomGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_play_custom_game, container, false);
 
+        // define components
+        Button btn_make = (Button) view.findViewById(R.id.btn_make);
+        Button btn_fail = (Button) view.findViewById(R.id.btn_fail);
+        TextView txt_nextTrick = (TextView) view.findViewById(R.id.txt_nextTrick);
+        TextView lbl_S = (TextView) view.findViewById(R.id.lbl_S);
+        TextView lbl_K = (TextView) view.findViewById(R.id.lbl_K);
+        TextView lbl_A = (TextView) view.findViewById(R.id.lbl_A);
+        TextView lbl_T = (TextView) view.findViewById(R.id.lbl_T);
+        TextView lbl_E = (TextView) view.findViewById(R.id.lbl_E);
+
         Bundle bundle = getArguments();
         ArrayList enteredTricks = bundle.getStringArrayList("allTricks");
 
         TextView txt_test = (TextView) view.findViewById(R.id.txt_TEST);
         txt_test.setText(enteredTricks.toString());
 
+        btn_make.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if ((letters >= 5) || (enteredTricks.isEmpty())){
+                    // stop the game if the user has accumulated all 5 letters
+                    Toast.makeText(getActivity(), "Game Finished!", Toast.LENGTH_SHORT).show();
+                    System.out.println("MAKE :: GAME ENDED");
+                    return;
+                }
+
+                if (enteredTricks.size() == 1) {
+                    // stop the game if there are no more tricks left
+                    txt_nextTrick.setText(enteredTricks.get(0).toString());
+                    enteredTricks.remove(0);
+                } else {
+                    // randomly pick tricks from the trick list and update the textView showing it
+                    String nextTrick = getNextTrick(enteredTricks);
+                    txt_nextTrick.setText(nextTrick);
+                    enteredTricks.remove(nextTrick);
+                    System.out.print(enteredTricks.size() + " :: ");
+                    System.out.println(enteredTricks.toString());
+                }
+            }
+        });
+
+        btn_fail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                letters = letters + 1;
+                if ((letters >= 6) || (enteredTricks.isEmpty())){
+                    Toast.makeText(getActivity(), "Game Finished!", Toast.LENGTH_SHORT).show();
+                    System.out.println("FAIL :: GAME ENDED");
+                    return;
+                }
+                if (enteredTricks.size() == 1) {
+                    // stop the game if there are no more tricks left
+                    txt_nextTrick.setText(enteredTricks.get(0).toString());
+                    enteredTricks.remove(0);
+                } else {
+                    // randomly pick tricks from the trick list and update the textView showing it
+                    String nextTrick = getNextTrick(enteredTricks);
+                    txt_nextTrick.setText(nextTrick);
+                    enteredTricks.remove(nextTrick);
+                    System.out.print(enteredTricks.size() + " :: ");
+                    System.out.println(enteredTricks.toString());
+                }
+
+                // display letters based on "letters counter"
+                switch(letters) {
+                    case 1:
+                        lbl_S.setVisibility(View.VISIBLE);
+                        break;
+                    case 2:
+                        lbl_K.setVisibility(View.VISIBLE);
+                        break;
+                    case 3:
+                        lbl_A.setVisibility(View.VISIBLE);
+                        break;
+                    case 4:
+                        lbl_T.setVisibility(View.VISIBLE);
+                        break;
+                    case 5:
+                        lbl_E.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
+
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private String getNextTrick(ArrayList<String> enteredTricks) {
+        String nextTrick = "";
+
+        if (enteredTricks.size() > 1) {
+            // randomly pick tricks from the trick list
+            Random randomizer = new Random();
+            nextTrick = enteredTricks.get(randomizer.nextInt(enteredTricks.size())).toString();
+        }
+        return nextTrick;
     }
 }
