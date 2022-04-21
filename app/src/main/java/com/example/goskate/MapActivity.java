@@ -2,7 +2,6 @@ package com.example.goskate;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
@@ -16,18 +15,34 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    MarkerOptions marker;
+    private MarkerOptions marker;
     LatLng centerLocation;
 
-    private FirebaseAuth fAuth;
-    private FirebaseFirestore fStore;
+    private FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    private FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    private CollectionReference collectionReference = fStore.collection("parks");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,16 +82,44 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         // center location to uk
         centerLocation = new LatLng(51.506751202151534, -0.1271100905535411);
 
-        marker = new MarkerOptions().title("Brixton Skatepark")
-                .position(new LatLng(51.46605787443271, -0.11634068701025337))
-                .snippet("Snippet here?? whats this lol");
+        readDocument();
+    }
+
+    public void readDocument() {
+        FirebaseFirestore.getInstance()
+                .collection("parks")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                        for (DocumentSnapshot snapshot: snapshotList) {
+                            Log.d("TAG", "onSuccess: " + snapshot.getData().toString());
+                            Log.d("TAG", snapshot.getId());
+
+                            GeoPoint geoPoint = snapshot.getGeoPoint("geolocation");
+
+                            marker = new MarkerOptions()
+                                    .title(snapshot.getString("name"))
+                                    .position(new LatLng(geoPoint.getLatitude(), geoPoint.getLongitude()))
+                                    .snippet(snapshot.getString("description"));
+
+                            mMap.addMarker(marker);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("TAG", "onFailure: ", e);
+                    }
+                });
 
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.addMarker(marker);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 8));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 11));
     }
 }
