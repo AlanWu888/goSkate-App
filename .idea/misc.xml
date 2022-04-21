@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/drawable-v24/profile_png_foreground.xml" value="0.2945" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/drawable/ic_profile.xml" value="0.2485" />
+        <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/drawable/profile_png_background.xml" value="0.2945" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/drawable/selector.xml" value="0.1945" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_custom_game.xml" value="0.2864450127877238" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_custom_skate.xml" value="0.3625" />
@@ -13,7 +15,7 @@
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_maps.xml" value="0.3625" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_premade_skate.xml" value="0.3625" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_preset_game.xml" value="0.2864450127877238" />
-        <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_profile.xml" value="0.3175925925925926" />
+        <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_register.xml" value="0.34375" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/activity_skate_dice.xml" value="0.3625" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/fragment_add_tricks.xml" value="0.33" />
@@ -28,6 +30,8 @@
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/list_item.xml" value="0.3625" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/layout/list_view_layout.xml" value="0.3625" />
         <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/menu/menu_bottom_nav.xml" value="0.3175925925925926" />
+        <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/mipmap-anydpi-v26/profile_png.xml" value="0.2485" />
+        <entry key="..\:/Users/alanw/AndroidStudioProjects/goSkate/app/src/main/res/mipmap-anydpi-v26/profile_png_round.xml" value="0.2485" />
       </map>
     </option>
   </component>
