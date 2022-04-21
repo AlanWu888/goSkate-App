@@ -30,7 +30,7 @@ public class ChooseDifficultyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_play_game, container, false);
+        View view = inflater.inflate(R.layout.fragment_choose_difficulty, container, false);
 
         // define components
         Button btn_easy = (Button) view.findViewById(R.id.btn_easy);

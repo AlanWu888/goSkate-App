@@ -46,7 +46,7 @@ public class CustomTricksFragment extends Fragment {
                 if (newTrick(currTrick, trickNames) == true) {
                     trickNames.add(edit_trickName.getText().toString());
                     listViewAdapter.notifyDataSetChanged();
-                    Toast.makeText(getActivity(), currTrick + " + added!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), currTrick + " added!", Toast.LENGTH_SHORT).show();
                     edit_trickName.setText("");
                 }
             }
