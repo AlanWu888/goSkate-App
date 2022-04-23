@@ -23,28 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn_make"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="32dp"
-            android:text="{{TICK}}"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <Button
-            android:id="@+id/btn_fail"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginBottom="32dp"
-            android:text="{{CROSS}}"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
             android:id="@+id/lbl_S"
             android:layout_width="wrap_content"
@@ -154,6 +132,31 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_startGame"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_fail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginBottom="32dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cross"
+            android:visibility="visible"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_make"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="32dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/tick"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

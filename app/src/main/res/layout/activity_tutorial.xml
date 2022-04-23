@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapActivity">
+    tools:context=".TutorialActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
@@ -18,7 +17,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemBackground="@color/light_blue"
@@ -27,18 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_bottom_nav" />
+        app:menu="@menu/menu_bottom_nav" >
 
-    <ImageButton
-        android:id="@+id/btn_addLocation"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        android:src="@drawable/add"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
-        app:layout_constraintEnd_toEndOf="parent" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

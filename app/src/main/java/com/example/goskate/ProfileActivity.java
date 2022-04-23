@@ -51,6 +51,11 @@ public class ProfileActivity extends AppCompatActivity {
 
                     case R.id.Profile:
                         return true;
+
+                    case R.id.Tutorial:
+                        startActivity(new Intent(getApplicationContext(), TutorialActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }

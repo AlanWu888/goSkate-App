@@ -5,30 +5,36 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.view.Window;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class TutorialActivity extends AppCompatActivity {
 
-    Button btn_customGame, btn_premadeGame;
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tutorial);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         // set selected
-        bottomNavigationView.setSelectedItemId(R.id.Dice);
+        bottomNavigationView.setSelectedItemId(R.id.Profile);
+
         // perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()) {
                     case R.id.Dice:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.Map:
@@ -42,31 +48,24 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.Tutorial:
-                        startActivity(new Intent(getApplicationContext(), TutorialActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
             }
         });
 
-        // add button functionality
-        btn_customGame = findViewById(R.id.btn_customGame);
-        btn_premadeGame = findViewById(R.id.btn_premadeGame);
+        webView = findViewById(R.id.webView);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);     // allow javascript in web view
+        webView.setWebViewClient(new Callback());
+        // "file:///android_asset/aboutcertified.html"
+        webView.loadUrl("http://www.alanwuinfo.tech/");
+    }
 
-        btn_customGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), CustomGameActivity.class));
-            }
-        });
-
-        btn_premadeGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PresetGameActivity.class));
-            }
-        });
-
+    private class Callback extends WebViewClient{
+        @Override
+        public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
+            return false;
+        }
     }
 }

@@ -4,11 +4,11 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,8 +29,8 @@ public class PlayGameFragment extends Fragment {
 
         // define components
         Button btn_start = (Button) view.findViewById(R.id.btn_startGame);
-        Button btn_make = (Button) view.findViewById(R.id.btn_make);
-        Button btn_fail = (Button) view.findViewById(R.id.btn_fail);
+        ImageButton btn_make = (ImageButton) view.findViewById(R.id.btn_make);
+        ImageButton btn_fail = (ImageButton) view.findViewById(R.id.btn_fail);
         TextView txt_instructions4 = (TextView) view.findViewById(R.id.txt_instructions4);
         TextView txt_nextTrick = (TextView) view.findViewById(R.id.txt_nextTrick);
         TextView lbl_S = (TextView) view.findViewById(R.id.lbl_S);

@@ -1,6 +1,5 @@
 package com.example.goskate;
 // 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
-import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,16 +12,15 @@ import android.widget.Button;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class ChooseDifficultyFragment extends Fragment {
     // define directories for textfiles containing different tricks
-    final String dir_easy    = "easy.txt";
-    final String dir_medium  = "medium.txt";
-    final String dir_hard    = "hard.txt";
-    final String dir_extreme = "extreme.txt";
+    final String dir_easy    = "skate_dice/easy.txt";
+    final String dir_medium  = "skate_dice/medium.txt";
+    final String dir_hard    = "skate_dice/hard.txt";
+    final String dir_extreme = "skate_dice/extreme.txt";
 
     private ArrayList<String>trickList = new ArrayList<>();
 
