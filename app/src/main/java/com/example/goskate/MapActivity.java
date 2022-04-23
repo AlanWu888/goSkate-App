@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,6 +34,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private GoogleMap mMap;
     private MarkerOptions marker;
     private LatLng centerLocation;
+
+    private ImageButton btn_addLocation;
 
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore fStore = FirebaseFirestore.getInstance();
@@ -69,6 +73,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                         return true;
                 }
                 return false;
+            }
+        });
+
+        btn_addLocation = findViewById(R.id.btn_addLocation);
+        btn_addLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AddLocationActivity.class));
             }
         });
 
