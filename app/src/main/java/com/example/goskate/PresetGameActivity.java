@@ -47,7 +47,7 @@ public class PresetGameActivity extends AppCompatActivity {
             }
         });
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.preset_game_container, new ChooseDifficultyFragment()).commit();
+        FragmentTransaction fragmentTransaction_chooseDifficulty = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction_chooseDifficulty.add(R.id.preset_game_container, new ChooseDifficultyFragment()).commit();
     }
 }

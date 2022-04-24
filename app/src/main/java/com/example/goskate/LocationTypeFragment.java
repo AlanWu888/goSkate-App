@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class LocationTypeFragment extends Fragment {
+
     public LocationTypeFragment() {
         // Required empty public constructor
     }
@@ -25,11 +26,29 @@ public class LocationTypeFragment extends Fragment {
         Button btn_addSpot = (Button) view.findViewById(R.id.btn_addSpot);
         Button btn_addPark = (Button) view.findViewById(R.id.btn_addPark);
 
+        btn_addShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction_addLocation = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction_addLocation.replace(R.id.add_location_container, new AddShopFragment()).commit();
+            }
+        });
 
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        btn_addSpot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction_addLocation = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction_addLocation.replace(R.id.add_location_container, new AddSpotFragment()).commit();
+            }
+        });
 
-        AddShopFragment addShopFragment = new AddShopFragment();
-        fragmentTransaction.replace(R.id.add_location_container, addShopFragment).commit();
+        btn_addPark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction_addLocation = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction_addLocation.replace(R.id.add_location_container, new AddParkFragment()).commit();
+            }
+        });
 
         return view;
     }

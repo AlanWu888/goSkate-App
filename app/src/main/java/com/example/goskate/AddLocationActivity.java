@@ -48,11 +48,7 @@ public class AddLocationActivity extends AppCompatActivity {
             }
         });
 
-
-        /*
-        Problem lines below, need to remake the LocationType fragment I think.
-         */
-        // FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        // fragmentTransaction.add(R.id.add_location_container, new LocationTypeFragment()).commit();
+        FragmentTransaction fragmentTransaction_addLocation = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction_addLocation.add(R.id.add_location_container, new LocationTypeFragment()).commit();
     }
 }

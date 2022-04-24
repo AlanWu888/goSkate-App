@@ -87,13 +87,13 @@ public class ChooseDifficultyFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putStringArrayList("allTricks", trickNames);
 
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction_playSkate = getActivity().getSupportFragmentManager().beginTransaction();
 
         // create new play fragment object with the parameters
         PlayGameFragment playGameFragment = new PlayGameFragment();
         playGameFragment.setArguments(bundle);
 
-        fragmentTransaction.replace(R.id.preset_game_container, playGameFragment).commit();
+        fragmentTransaction_playSkate.replace(R.id.preset_game_container, playGameFragment).commit();
     }
 
     private ArrayList readTextFiles(String filename) {

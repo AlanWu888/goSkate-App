@@ -59,13 +59,13 @@ public class CustomTricksFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putStringArrayList("allTricks", trickNames);
 
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction_playSkateCustom = getActivity().getSupportFragmentManager().beginTransaction();
 
                 // create new play fragment object with the parameters
                 PlayGameFragment playGameFragment = new PlayGameFragment();
                 playGameFragment.setArguments(bundle);
 
-                fragmentTransaction.replace(R.id.custom_game_container, playGameFragment).commit();
+                fragmentTransaction_playSkateCustom.replace(R.id.custom_game_container, playGameFragment).commit();
             }
         });
 

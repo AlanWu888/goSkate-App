@@ -139,10 +139,10 @@
             android:layout_height="100dp"
             android:layout_marginStart="64dp"
             android:layout_marginBottom="32dp"
+            android:background="@null"
             android:scaleType="fitCenter"
             android:src="@drawable/cross"
-            android:visibility="visible"
-            android:background="@null"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -152,9 +152,10 @@
             android:layout_height="100dp"
             android:layout_marginEnd="64dp"
             android:layout_marginBottom="32dp"
+            android:background="@null"
             android:scaleType="fitCenter"
             android:src="@drawable/tick"
-            android:background="@null"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
