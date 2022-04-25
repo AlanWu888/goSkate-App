@@ -1,6 +1,6 @@
 package com.example.goskate;
 
-import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,8 +32,6 @@ import java.util.Locale;
 import java.util.Map;
 
 public class AddParkFragment extends Fragment {
-    private GeoPoint geoPoint;
-
     public AddParkFragment() {
         // Required empty public constructor
     }
@@ -72,9 +70,9 @@ public class AddParkFragment extends Fragment {
                 locationName = input_address_park.getText().toString();
                 description = input_desc_park.getText().toString();
                 condition = "test";
-                // condition = input_cond_park.getText().toString();
                 // endregion
 
+                // region convert address to GeoPoint and add new location to fireStore
                 Geocoder geoCoder = new Geocoder(getContext(), Locale.getDefault());
                 try {
                     List<Address> address = geoCoder.getFromLocationName(locationName, 1);
@@ -88,24 +86,30 @@ public class AddParkFragment extends Fragment {
                     map.put("condition", condition);
                     map.put("address", locationName);
 
-                    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-                    firestore.collection("parks").add(map)
+                    FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
+                    fireStore.collection("parks").add(map)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
                                     Log.d("addpark", "onSuccess: task successful");
+                                    Toast.makeText(getActivity(), "Added Location!", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getActivity(), MapActivity.class));
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Log.d("addpark", "onFailure: taks failed");
+                                    Log.d("addpark", "onFailure: task failed");
+                                    Toast.makeText(getActivity(), "Something went wrong, please try again later", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getActivity(), MapActivity.class));
                                 }
                             });
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                // endregion
             }
+
         });
 
         return view;
