@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,6 +32,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -36,6 +41,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private MarkerOptions marker;
     private LatLng centerLocation;
 
+    private ArrayList<Marker> myMarkers;
+
+    private SearchView sv_searchMap;
     private ImageButton btn_addLocation;
 
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -95,6 +103,24 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         loadParks();    // Display Skateparks from FireStore onto the map
         loadShops();    // Display Skateparks from FireStore onto the map
         loadSpots();    // Display Skateparks from FireStore onto the map
+
+        // region SearchView Code
+        sv_searchMap = findViewById(R.id.sv_searchMap);
+        sv_searchMap.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                String searchQuery = sv_searchMap.getQuery().toString();
+                // add search code here
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+        //endregion
     }
 
     private void loadParks() {
