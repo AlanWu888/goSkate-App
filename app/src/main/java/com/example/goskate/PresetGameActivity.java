@@ -17,10 +17,10 @@ public class PresetGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preset_game);
 
+        // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Dice);
-        // perform ItemSelectedListener
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -46,7 +46,9 @@ public class PresetGameActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
+        // Set fragment for the preset game container
         FragmentTransaction fragmentTransaction_chooseDifficulty = getSupportFragmentManager().beginTransaction();
         fragmentTransaction_chooseDifficulty.add(R.id.preset_game_container, new ChooseDifficultyFragment()).commit();
     }

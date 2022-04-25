@@ -33,7 +33,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="This is the preset S.K.A.T.E dice with increasing difficulty. Choosing one of the following optiosn will allow you to play with an unseen list of tricks."
+            android:text="This is the preset S.K.A.T.E dice with different levels of difficulty. Choosing one of the following optiosn will allow you to play with an unseen list of tricks."
             android:textAlignment="center"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"

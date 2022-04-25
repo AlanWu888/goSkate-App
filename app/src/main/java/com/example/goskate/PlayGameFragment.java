@@ -27,7 +27,7 @@ public class PlayGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_play_game, container, false);
 
-        // define components
+        // region Define Components
         Button btn_start = (Button) view.findViewById(R.id.btn_startGame);
         ImageButton btn_make = (ImageButton) view.findViewById(R.id.btn_make);
         ImageButton btn_fail = (ImageButton) view.findViewById(R.id.btn_fail);
@@ -38,10 +38,12 @@ public class PlayGameFragment extends Fragment {
         TextView lbl_A = (TextView) view.findViewById(R.id.lbl_A);
         TextView lbl_T = (TextView) view.findViewById(R.id.lbl_T);
         TextView lbl_E = (TextView) view.findViewById(R.id.lbl_E);
+        // endregion
 
         Bundle bundle = getArguments();
         ArrayList enteredTricks = bundle.getStringArrayList("allTricks");
 
+        // region Button Functionality
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,8 +126,8 @@ public class PlayGameFragment extends Fragment {
                 }
             }
         });
+        // endregion
 
-        // Inflate the layout for this fragment
         return view;
     }
 

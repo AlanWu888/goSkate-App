@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Dice);
-        // perform ItemSelectedListener
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -49,11 +49,14 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
-        // add button functionality
+        // region Define Components
         btn_customGame = findViewById(R.id.btn_customGame);
         btn_premadeGame = findViewById(R.id.btn_premadeGame);
+        // endregion
 
+        // region Button Functionality
         btn_customGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), PresetGameActivity.class));
             }
         });
-
+        // endregion
     }
 }

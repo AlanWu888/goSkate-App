@@ -23,11 +23,10 @@ public class TutorialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
 
+        // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Profile);
 
-        // perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -53,13 +52,16 @@ public class TutorialActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
+        // region WebView
         webView = findViewById(R.id.webView);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);     // allow javascript in web view
         webView.setWebViewClient(new Callback());
         // "file:///android_asset/aboutcertified.html"
         webView.loadUrl("http://www.alanwuinfo.tech/");
+        // endregion
     }
 
     private class Callback extends WebViewClient{

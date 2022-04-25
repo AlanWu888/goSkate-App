@@ -30,25 +30,24 @@ import java.util.Map;
 import java.util.zip.InflaterInputStream;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText regUsername, regEmail, regPassword, regConfirmPassword;
-    Button btn_register;
-    TextView txt_loginPrompt;
-    FirebaseAuth firebaseAuth;
-    ProgressBar progressBar;
+    private EditText regUsername, regEmail, regPassword, regConfirmPassword;
+    private Button btn_register;
+    private TextView txt_loginPrompt;
+    private FirebaseAuth firebaseAuth;
+    private ProgressBar progressBar;
 
-    FirebaseFirestore fStore;        // create Firestore instance
-    String userID;
+    private FirebaseFirestore fStore;        // create Firestore instance
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Profile);
 
-        // perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -74,18 +73,20 @@ public class RegisterActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
-        // collect field data
+        // region Define Components
         regUsername = findViewById(R.id.regUsername);
         regEmail = findViewById(R.id.regEmail);
         regPassword = findViewById(R.id.regPassword);
         regConfirmPassword = findViewById(R.id.regConfirmPassword);
         btn_register = findViewById(R.id.btn_register);
         txt_loginPrompt = findViewById(R.id.txt_loginPrompt);
+        progressBar = findViewById(R.id.progressBar);
+        // endregion
 
         firebaseAuth = FirebaseAuth.getInstance();      // instantiate
         fStore = FirebaseFirestore.getInstance();       // instantiate
-        progressBar = findViewById(R.id.progressBar);
 
         // check if user has already made an account, send to profile screen
         if(firebaseAuth.getCurrentUser() != null) {
@@ -93,12 +94,15 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         btn_register.setOnClickListener(new View.OnClickListener() {
+            // Register the user based on the inputs made by user
             @Override
             public void onClick(View view) {
+                // region Collect Data
                 String email = regEmail.getText().toString().trim();
                 String password = regPassword.getText().toString().trim();
                 String confirmed_password = regConfirmPassword.getText().toString().trim();
                 String username = regUsername.getText().toString().trim();
+                // endregion
 
                 // guard conditions for validation
                 if (!(password.equals(confirmed_password))) {
@@ -124,7 +128,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                 // Show progress bar to show registration is progressing
                 progressBar.setVisibility(View.VISIBLE);
-
 
                 // Register the user to FireBase
                 firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

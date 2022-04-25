@@ -33,14 +33,16 @@ public class ChooseDifficultyFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_choose_difficulty, container, false);
 
-        // define components
+        // region Define components
         Button btn_easy = (Button) view.findViewById(R.id.btn_easy);
         Button btn_medium = (Button) view.findViewById(R.id.btn_medium);
         Button btn_hard = (Button) view.findViewById(R.id.btn_hard);
         Button btn_extreme = (Button) view.findViewById(R.id.btn_extreme);
+        // endregion
 
-        // play game with easy difficulty
+        // region Button functionality
         btn_easy.setOnClickListener(new View.OnClickListener() {
+            // play game with easy difficulty
             @Override
             public void onClick(View view) {
                 trickList.addAll(readTextFiles(dir_easy));
@@ -48,8 +50,8 @@ public class ChooseDifficultyFragment extends Fragment {
             }
         });
 
-        // play game with medium difficulty
         btn_medium.setOnClickListener(new View.OnClickListener() {
+            // play game with medium difficulty
             @Override
             public void onClick(View view) {
                 trickList.addAll(readTextFiles(dir_easy));
@@ -58,8 +60,8 @@ public class ChooseDifficultyFragment extends Fragment {
             }
         });
 
-        // play game with hard difficulty
         btn_hard.setOnClickListener(new View.OnClickListener() {
+            // play game with hard difficulty
             @Override
             public void onClick(View view) {
                 trickList.addAll(readTextFiles(dir_easy));
@@ -69,8 +71,8 @@ public class ChooseDifficultyFragment extends Fragment {
             }
         });
 
-        // play game with extreme difficulty
         btn_extreme.setOnClickListener(new View.OnClickListener() {
+            // play game with extreme difficulty
             @Override
             public void onClick(View view) {
                 trickList.addAll(readTextFiles(dir_easy));
@@ -80,10 +82,13 @@ public class ChooseDifficultyFragment extends Fragment {
                 playSkate(trickList);
             }
         });
+        // endregion
+
         return view;
     }
 
     private void playSkate(ArrayList<String> trickNames) {
+        // loads the next fragment with an arraylist of String objects containing trick names
         Bundle bundle = new Bundle();
         bundle.putStringArrayList("allTricks", trickNames);
 

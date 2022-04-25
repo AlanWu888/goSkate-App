@@ -30,11 +30,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Profile);
 
-        // perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -60,18 +59,19 @@ public class ProfileActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
-        // define components
+        // region Define Components
         username = findViewById(R.id.txt_username);
         email = findViewById(R.id.txt_email);
         biography = findViewById(R.id.txt_bio);
         contributions = findViewById(R.id.txt_valueContributions);
         reviews = findViewById(R.id.txt_valueReviews);
+        // endregion
 
         // instantiate firebase objects
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-
         // get User ID
         userID = fAuth.getCurrentUser().getUid();
 

@@ -21,22 +21,21 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText loginEmail, loginPassword;
-    Button btn_login;
-    TextView txt_registerPrompt;
-    FirebaseAuth firebaseAuth;
-    ProgressBar progressBar;
+    private EditText loginEmail, loginPassword;
+    private Button btn_login;
+    private TextView txt_registerPrompt;
+    private FirebaseAuth firebaseAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // region BottomNavigation code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Profile);
 
-        // perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -62,21 +61,23 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
-        // collect field data
+        // region Define Components
         loginEmail = findViewById(R.id.loginEmail);
         loginPassword = findViewById(R.id.loginPassword);
         btn_login = findViewById(R.id.btn_login);
         txt_registerPrompt = findViewById(R.id.txt_registerPrompt);
-
-        firebaseAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
+        //endregion
 
         // check if user has already made an account, send to profile screen
+        firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
         }
 
+        // region OnClickListeners
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
+        //endregion
     }
 
 

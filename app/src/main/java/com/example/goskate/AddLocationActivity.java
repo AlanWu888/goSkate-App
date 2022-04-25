@@ -17,11 +17,10 @@ public class AddLocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_location);
 
+        // region BottomNavigation code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Map);
 
-        // perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -47,7 +46,9 @@ public class AddLocationActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
+        // Set fragment for the add location container
         FragmentTransaction fragmentTransaction_addLocation = getSupportFragmentManager().beginTransaction();
         fragmentTransaction_addLocation.add(R.id.add_location_container, new LocationTypeFragment()).commit();
     }

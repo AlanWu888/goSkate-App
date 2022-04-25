@@ -17,10 +17,10 @@ public class CustomGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_game);
 
+        // region BottomNavigation code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Dice);
-        // perform ItemSelectedListener
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -46,7 +46,9 @@ public class CustomGameActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // endregion
 
+        // Set fragment for the custom S.K.A.T.E game container
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.custom_game_container, new CustomTricksFragment()).commit();
     }

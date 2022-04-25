@@ -30,7 +30,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.List;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
-
     private GoogleMap mMap;
     private MarkerOptions marker;
     private LatLng centerLocation;
@@ -45,11 +44,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // set selected
         bottomNavigationView.setSelectedItemId(R.id.Map);
 
-        // perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -75,6 +73,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 return false;
             }
         });
+        // endregion
 
         btn_addLocation = findViewById(R.id.btn_addLocation);
         btn_addLocation.setOnClickListener(new View.OnClickListener() {
@@ -91,9 +90,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         // center location to uk
         centerLocation = new LatLng(51.506751202151534, -0.1271100905535411);
 
-        loadParks();
-        loadShops();
-        loadSpots();
+        loadParks();    // Display Skateparks from FireStore onto the map
+        loadShops();    // Display Skateparks from FireStore onto the map
+        loadSpots();    // Display Skateparks from FireStore onto the map
     }
 
     private void loadParks() {

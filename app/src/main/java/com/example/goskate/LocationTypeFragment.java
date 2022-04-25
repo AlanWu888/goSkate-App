@@ -21,12 +21,15 @@ public class LocationTypeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_location_type, container, false);
 
-        // Define Components
+        // region Define Components
         Button btn_addShop = (Button) view.findViewById(R.id.btn_addShop);
         Button btn_addSpot = (Button) view.findViewById(R.id.btn_addSpot);
         Button btn_addPark = (Button) view.findViewById(R.id.btn_addPark);
+        // endregion
 
+        // region Button Functionality
         btn_addShop.setOnClickListener(new View.OnClickListener() {
+            // Replaces the fragment in add_location_container to display the fragment to add a shop
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction_addLocation = getActivity().getSupportFragmentManager().beginTransaction();
@@ -35,6 +38,7 @@ public class LocationTypeFragment extends Fragment {
         });
 
         btn_addSpot.setOnClickListener(new View.OnClickListener() {
+            // Replaces the fragment in add_location_container to display the fragment to add a shop
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction_addLocation = getActivity().getSupportFragmentManager().beginTransaction();
@@ -43,12 +47,14 @@ public class LocationTypeFragment extends Fragment {
         });
 
         btn_addPark.setOnClickListener(new View.OnClickListener() {
+            // Replaces the fragment in add_location_container to display the fragment to add a shop
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction_addLocation = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction_addLocation.replace(R.id.add_location_container, new AddParkFragment()).commit();
             }
         });
+        // endregion
 
         return view;
     }

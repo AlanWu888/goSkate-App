@@ -26,12 +26,14 @@ public class CustomTricksFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_custom_tricks, container, false);
 
-        ArrayList<String> trickNames = new ArrayList<String>();
-
+        // region Define Components
         EditText edit_trickName = (EditText)view.findViewById(R.id.edit_trickName);
         ListView listView = (ListView)view.findViewById(R.id.listView_tricks);
         Button btn_addTrick = (Button)view.findViewById(R.id.btn_addTrick);
         Button btn_play = (Button)view.findViewById(R.id.btn_play);
+        // endregion
+
+        ArrayList<String> trickNames = new ArrayList<String>();
 
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(), android.R.layout.simple_list_item_1, trickNames
@@ -39,6 +41,7 @@ public class CustomTricksFragment extends Fragment {
 
         listView.setAdapter(listViewAdapter);
 
+        // region Button Functionality
         btn_addTrick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,27 +71,29 @@ public class CustomTricksFragment extends Fragment {
                 fragmentTransaction_playSkateCustom.replace(R.id.custom_game_container, playGameFragment).commit();
             }
         });
+        // endregion
 
         return view;
     }
 
     private boolean newTrick(String trickName, ArrayList<String> trickNames) {
-        // check that the entered text is non empty
+        // method to add a new trick to the list, will check input against two criteria - see comments
+
         if (trickName.isEmpty()) {
+            // check that the entered text is non empty
             Toast.makeText(getActivity(), "Please Enter a Trick!", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        // iterate through the arraylist to check for duplicate trick
         for(int i=0; i<trickNames.size(); i++) {
-            // will ignore case and whitespace (via regex - clean up this code if time avail)
+            // iterate through the arraylist to check for duplicate trick
+            // will ignore case and whitespace (via regex)
             if (trickName.replaceAll("\\s+","").equalsIgnoreCase(trickNames.get(i)
                     .replaceAll("\\s+",""))) {
                 Toast.makeText(getActivity(), "Duplicate Trick!", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
-
         return true;
     }
 }
