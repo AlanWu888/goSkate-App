@@ -12,40 +12,57 @@
 
         <Button
             android:id="@+id/btn_addPark"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
-            android:layout_marginEnd="128dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
             android:text="Add Park"
-            app:layout_constraintBottom_toTopOf="@+id/btn_addShop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_chooseLocationType" />
 
         <Button
             android:id="@+id/btn_addSpot"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="128dp"
             android:text="Add Spot"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_addShop" />
 
         <Button
             android:id="@+id/btn_addShop"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
-            android:layout_marginEnd="128dp"
+            android:layout_marginTop="32dp"
             android:text="Add Shop"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_addPark" />
+
+        <TextView
+            android:id="@+id/lbl_chooseLocationType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Add a Location to the map"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_chooseLocationType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Want to add your own location to the map? Choose from one of the options below to continue!"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_chooseLocationType" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
