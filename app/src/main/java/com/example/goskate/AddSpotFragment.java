@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,6 +33,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class AddSpotFragment extends Fragment {
+    final String[] spinnerConditions = {"Bad", "Medium", "Good"};
 
     public AddSpotFragment() {
         // Required empty public constructor
@@ -49,6 +51,11 @@ public class AddSpotFragment extends Fragment {
         EditText input_address_spot = (EditText) view.findViewById(R.id.input_address_spot);
         EditText input_desc_spot = (EditText) view.findViewById(R.id.input_desc_spot);
         Spinner input_cond_spot = (Spinner) view.findViewById(R.id.input_cond_spot);
+        ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                spinnerConditions);
+        input_cond_spot.setAdapter(adapter);
         // endregion
 
         // check if user is logged in and show relevant components
@@ -70,7 +77,7 @@ public class AddSpotFragment extends Fragment {
                 name = input_name_spot.getText().toString();
                 locationName = input_address_spot.getText().toString();
                 description = input_desc_spot.getText().toString();
-                condition = "test";
+                condition = input_cond_spot.getSelectedItem().toString();
                 // endregion
 
                 // region convert address to GeoPoint and add new location to fireStore
