@@ -88,12 +88,12 @@ public class AddSpotFragment extends Fragment {
                     map.put("address", locationName);
 
                     FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
-                    fireStore.collection("spots").add(map)
+                    fireStore.collection("approval_spots").add(map)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
                                     Log.d("addspot", "onSuccess: task successful");
-                                    Toast.makeText(getActivity(), "Added Location!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "Location submitted - Awaiting approval by moderators", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getActivity(), MapActivity.class));
                                 }
                             })

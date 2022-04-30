@@ -85,12 +85,12 @@ public class AddShopFragment extends Fragment {
                     map.put("address", locationName);
 
                     FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
-                    fireStore.collection("shops").add(map)
+                    fireStore.collection("approval_shops").add(map)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
                                     Log.d("addshop", "onSuccess: task successful");
-                                    Toast.makeText(getActivity(), "Added Location!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "Location submitted - Awaiting approval by moderators", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getActivity(), MapActivity.class));
                                 }
                             })
