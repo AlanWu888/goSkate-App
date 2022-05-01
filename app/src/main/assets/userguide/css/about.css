@@ -1,0 +1,47 @@
+.wrapper {
+    background:#EFEFEF;
+    box-shadow: 1px 1px 10px #999;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px !important;
+    width: 60vw;
+    padding-top: 5px;
+}
+.scrolls {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: auto;
+white-space:nowrap
+}
+.imageDiv img {
+    box-shadow: 1px 1px 10px #999;
+    margin: 2px;
+    max-height: 50px;
+    cursor: pointer;
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    vertical-align:top;
+}
+.scroll-image {
+    height: 40vh;
+}
+
+@media screen and (max-width: 762px) {
+	.wrapper {
+	    width: 76vw;
+	}
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        width: 86;
+    }
+	.container {
+		margin: 0 7%;
+	}
+}

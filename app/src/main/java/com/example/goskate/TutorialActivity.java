@@ -25,7 +25,7 @@ public class TutorialActivity extends AppCompatActivity {
 
         // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.Profile);
+        bottomNavigationView.setSelectedItemId(R.id.Tutorial);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -60,7 +60,8 @@ public class TutorialActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);     // allow javascript in web view
         webView.setWebViewClient(new Callback());
         // "file:///android_asset/aboutcertified.html"
-        webView.loadUrl("http://www.alanwuinfo.tech/");
+        // webView.loadUrl("http://www.alanwuinfo.tech/");
+        webView.loadUrl("file:///android_asset/userguide/html/about.html");
         // endregion
     }
 

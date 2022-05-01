@@ -1,36 +1,72 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="../bootstrap-5.1.3-dist/css/bootstrap.min.css">
-		<title>Test</title>
-	</head>
-	<body>
-		<div class="container flex">
-			<h1 class="text-center pt-3">goSkate</h1>
-			
-			<nav class="navbar navbar-expand navbar-light bg-light justify-content-center">
-				<ul class="navbar-nav">
-					<li class="nav-item px-1 px-md-5 px-sm-4">
-						<a class="nav-link" href="#">About</a>
-					</li>
-					<li class="nav-item px-1 px-md-5 px-sm-4">
-						<a class="nav-link" href="#">S.K.A.T.E</a>
-					</li>
-					<li class="nav-item px-1 px-md-5 px-sm-4">
-						<a class="nav-link" href="#">Maps</a>
-					</li>
-					<li class="nav-item px-1 px-md-5 px-sm-4">
-						<a class="nav-link" href="#">Profile</a>
-					</li>
-				</ul>
-			</nav>	
-		</div>
-		
-		<script src="../bootstrap-5.1.3-dist/js/bootstrap.min.js">
-		<script src="../bootstrap-5.1.3-dist/js/bootstrap.js">
-	</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+</head>
+<body>
+
+<ul class="topnav">
+    <li><a href="about.html">About</a></li>
+    <li><a class="active">Maps</a></li>
+    <li><a href="dice.html">S.K.A.T.E</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li class="right"><a href="admin.html">Admin</a></li>
+</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img class="goSkateLabel" src="../assets/logo_goskate_full.png" alt="goSkate">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h2 class="page-title">Using the Maps</h2>
+            <p>The “Map” tab on the goSkate app allows you to view all skate locations on our
+                databases on a map. Different location types are represented using different
+                coloured map markers.</p>
+            <ul>
+                <li>Skate shops are represented by Red markers</li>
+                <li>Skate spots are represented by Blue markers</li>
+                <li>Skate parks are represented by Yellow markers</li>
+            </ul>
+            <p>Pressing on a marker will display a card with the name of the location, and a short
+                description of the location itself. Additionally, two small buttons will appear on
+                the screen in the bottom right-hand side of the screen, of which open the location
+                in google maps, allowing you to view the location’s address or navigate to it.</p>
+            <br>
+            <h2 class="page-title">Adding a location to the map</h2>
+            <p>Can’t find your local skatepark? You can always request for it to be added by using
+                the location adding feature on goSkate. This can be accessed through the “plus”
+                button in the bottom right-hand side of the Map tab. Pressing on this will bring up
+                a new screen which asks you which type of location you would like to add, after
+                selecting one of the options, the next screen will prompt you to fill in some
+                details about the location. Once all fields are filled, you will be able to submit
+                your location for approval by an admin user, of which if suitable, your location
+                will be added to the Maps tab within 24 hours. </p>
+            <b>To use this feature, you must be signed in.</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>Place holder text</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>Place holder text</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Last updated 01/05/2022</p>
+</footer>
+
+</body>
 </html>
