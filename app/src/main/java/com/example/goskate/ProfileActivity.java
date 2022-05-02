@@ -3,6 +3,7 @@ package com.example.goskate;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                     case R.id.Tutorial:
                         startActivity(new Intent(getApplicationContext(), TutorialActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -61,37 +62,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
         // endregion
 
-        // region Define Components
-        username = findViewById(R.id.txt_username);
-        email = findViewById(R.id.txt_email);
-        biography = findViewById(R.id.txt_bio);
-        contributions = findViewById(R.id.txt_valueContributions);
-        reviews = findViewById(R.id.txt_valueReviews);
-        // endregion
-
-        // instantiate firebase objects
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
-        // get User ID
-        userID = fAuth.getCurrentUser().getUid();
-
-        // retrieve data from firebase and display in correct places
-        DocumentReference documentReference = fStore.collection("users").document(userID);
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                username.setText(documentSnapshot.getString("username"));
-                email.setText(documentSnapshot.getString("email"));
-                biography.setText(documentSnapshot.getString("biography"));
-                contributions.setText(documentSnapshot.getString("contributions"));
-                reviews.setText(documentSnapshot.getString("reviews"));
-            }
-        });
-    }
-
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        finish();
+        // Set fragment for the preset game container
+        FragmentTransaction fragmentTransaction_displayProfile = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction_displayProfile.add(R.id.profile_container, new DisplayProfileFragment()).commit();
     }
 }
