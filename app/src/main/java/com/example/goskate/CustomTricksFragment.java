@@ -59,6 +59,10 @@ public class CustomTricksFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // pass arraylist as parameter to next fragment
+                if (trickNames.size()<5) {
+                    Toast.makeText(getActivity(), "Please Enter at least five Tricks!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Bundle bundle = new Bundle();
                 bundle.putStringArrayList("allTricks", trickNames);
 
