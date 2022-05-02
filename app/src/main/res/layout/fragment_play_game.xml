@@ -10,24 +10,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_skate_dice" />
+
         <TextView
             android:id="@+id/lbl_diceTitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="S.K.A.T.E Dice"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
         <TextView
             android:id="@+id/lbl_S"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="16dp"
             android:text="S"
             android:textAlignment="center"
@@ -42,7 +53,7 @@
             android:id="@+id/lbl_K"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="16dp"
             android:text="K"
             android:textAlignment="center"
@@ -57,7 +68,7 @@
             android:id="@+id/lbl_A"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="64dp"
             android:text="A"
             android:textAlignment="center"
             android:textSize="34sp"
@@ -73,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="64dp"
             android:text="T"
             android:textAlignment="center"
             android:textSize="34sp"
@@ -88,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="64dp"
             android:text="E"
             android:textAlignment="center"
             android:textSize="34sp"
@@ -104,6 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,11 +123,15 @@
             app:layout_constraintTop_toBottomOf="@+id/lbl_A" />
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/btn_startGame"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="200dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Start"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

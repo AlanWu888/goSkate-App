@@ -27,7 +27,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.zip.InflaterInputStream;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText regUsername, regEmail, regPassword, regConfirmPassword;
@@ -53,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()) {
                     case R.id.Dice:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), DiceActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 

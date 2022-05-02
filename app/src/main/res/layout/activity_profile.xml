@@ -35,6 +35,7 @@
         app:menu="@menu/menu_bottom_nav" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btn_profileLogout"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -59,6 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btn_editProfile"
         android:layout_width="150dp"
         android:layout_height="wrap_content"

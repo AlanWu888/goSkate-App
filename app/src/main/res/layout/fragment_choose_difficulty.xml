@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_skate_dice" />
+
         <TextView
             android:id="@+id/txt_instructions3"
             android:layout_width="0dp"
@@ -31,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:text="This is the preset S.K.A.T.E dice with different levels of difficulty. Choosing one of the following optiosn will allow you to play with an unseen list of tricks."
             android:textAlignment="center"
@@ -44,21 +55,24 @@
             android:id="@+id/lbl_diceTitle3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="S.K.A.T.E Dice"
-            android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
             android:id="@+id/btn_extreme"
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Extreme"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_hard" />
@@ -66,9 +80,13 @@
         <Button
             android:id="@+id/btn_easy"
             android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Easy"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_instructions3" />
@@ -76,9 +94,13 @@
         <Button
             android:id="@+id/btn_medium"
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Medium"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_easy" />
@@ -86,9 +108,13 @@
         <Button
             android:id="@+id/btn_hard"
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Hard"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_medium" />

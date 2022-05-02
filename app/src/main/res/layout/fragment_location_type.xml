@@ -10,12 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_map_logo" />
+
         <Button
             android:id="@+id/btn_addPark"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Add Park"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_chooseLocationType" />
@@ -25,7 +40,11 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Add Spot"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_addShop" />
@@ -35,7 +54,11 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Add Shop"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_addPark" />
@@ -44,20 +67,20 @@
             android:id="@+id/lbl_chooseLocationType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="Add a Location to the map"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <TextView
             android:id="@+id/txt_chooseLocationType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:text="Want to add your own location to the map? Choose from one of the options below to continue!"
             android:textAlignment="center"

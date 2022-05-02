@@ -11,6 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_skatepark_add" />
+
         <TextView
             android:id="@+id/lbl_cond_park"
             android:layout_width="wrap_content"
@@ -95,13 +106,13 @@
             android:id="@+id/lbl_add_park"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="Add Skate park"
-            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <Spinner
             android:id="@+id/input_cond_park"
@@ -129,7 +140,11 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
+            android:background="@drawable/rounded_buttons"
             android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

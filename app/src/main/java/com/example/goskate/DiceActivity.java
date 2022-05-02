@@ -11,14 +11,14 @@ import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class DiceActivity extends AppCompatActivity {
 
     Button btn_customGame, btn_premadeGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dice);
 
         // region BottomNavigation Code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
