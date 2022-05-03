@@ -11,6 +11,16 @@
     width: 60vw;
     padding-top: 5px;
 }
+.wrapper-single {
+    background:#EFEFEF;
+    box-shadow: 1px 1px 10px #999;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px !important;
+    width: auto;
+    padding-top: 5px;
+}
 .scrolls {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -29,6 +39,7 @@ white-space:nowrap
 }
 .scroll-image {
     height: 40vh;
+    margin: 0 5px;
 }
 
 @media screen and (max-width: 762px) {
