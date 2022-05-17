@@ -1,5 +1,5 @@
 package com.example.goskate;
-// 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
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
