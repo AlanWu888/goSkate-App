@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class CustomTricksFragment extends Fragment {
 
+    private DatabaseHelper databaseHelper;
+
     public CustomTricksFragment() {
         // Required empty constructor
     }
@@ -41,6 +43,8 @@ public class CustomTricksFragment extends Fragment {
 
         listView.setAdapter(listViewAdapter);
 
+        databaseHelper = new DatabaseHelper(getContext());
+
         // region Button Functionality
         btn_addTrick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +53,7 @@ public class CustomTricksFragment extends Fragment {
                 if (newTrick(currTrick, trickNames) == true) {
                     trickNames.add(edit_trickName.getText().toString());
                     listViewAdapter.notifyDataSetChanged();
+                    databaseHelper.insertData(new Data(currTrick));
                     Toast.makeText(getActivity(), currTrick + " added!", Toast.LENGTH_SHORT).show();
                     edit_trickName.setText("");
                 }
