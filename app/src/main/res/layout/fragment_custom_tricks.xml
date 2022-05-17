@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="S.K.A.T.E Dice"
+            android:text="@string/dice_main_label"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -31,7 +31,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="To add a trick, type it in and submit it using the &quot;Add Trick&quot; button. Add at least five tricks and press &quot;Play&quot; to use the S.K.A.T.E Dice!"
+            android:text="@string/custom_instructions"
             android:textAlignment="center"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,13 +39,13 @@
             app:layout_constraintTop_toBottomOf="@+id/lbl_diceTitle" />
 
         <Button
-            android:textAllCaps="false"
             android:id="@+id/btn_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_buttons"
-            android:text="Play"
+            android:text="@string/play_custom"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,21 +72,21 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
-            android:hint="Enter Trick Name"
+            android:hint="@string/custom_trick_prompt"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_addTrick"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:textAllCaps="false"
             android:id="@+id/btn_addTrick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_buttons"
-            android:text="Add Trick"
+            android:text="@string/btn_add_trick"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -114,5 +114,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

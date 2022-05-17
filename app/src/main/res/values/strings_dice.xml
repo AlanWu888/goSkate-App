@@ -1,0 +1,39 @@
+<resources>
+    <!-- activity_custom_game -->
+
+    <!-- activity_dice -->
+    <string name="dice_main_label">S.K.A.T.E Dice</string>
+    <string name="dice_main_instructions">This is the S.K.A.T.E Dice where you will be able to randomly roll tricks from your own list, or a pre-set list of tricks. To begin, start by choosing one of the options below!</string>
+    <string name="btn_custom_game">I want to make my own list of tricks</string>
+    <string name="btn_preset_game">I want to use a pre-set list of tricks</string>
+
+    <!-- activity_preset_game -->
+
+    <!-- fragment_choose_difficulty -->
+    <string name="difficulty_instructions">This is the preset S.K.A.T.E dice with different levels of difficulty. Choosing one of the following optiosn will allow you to play with an unseen list of tricks.</string>
+    <string name="difficulty_line_2">Good Luck!</string>
+    <string name="level_easy">Easy</string>
+    <string name="level_medium">Medium</string>
+    <string name="level_hard">Hard</string>
+    <string name="level_extreme">Extreme</string>
+
+    <!-- fragment_custom_tricks -->
+    <string name="custom_instructions">To add a trick, type it in and submit it using the &quot;Add Trick&quot; button. Add at least five tricks and press &quot;Play&quot; to use the S.K.A.T.E Dice!</string>
+    <string name="play_custom">Play</string>
+    <string name="custom_trick_prompt">Enter Trick Name</string>
+    <string name="btn_add_trick">Add Trick</string>
+
+    <!-- fragment_play_game -->
+    <string name="dice_s">S</string>
+    <string name="dice_k">K</string>
+    <string name="dice_a">A</string>
+    <string name="dice_t">T</string>
+    <string name="dice_e">E</string>
+    <string name="play_dice_instructions">When you are ready to begin playing, press &quot;Start&quot; to roll a random trick from the list. Give the trick an attempt, and Press the Tick if you land the trick, or the Cross if you fail to land the trick. Remember, last letter gets two tries!</string>
+    <string name="btn_play_dice">Start</string>
+
+
+
+
+
+</resources>

@@ -1,0 +1,38 @@
+<resources>
+    <!-- activity_login -->
+    <string name="login_label">Login</string>
+    <string name="email_prompt">Email</string>
+    <string name="password_prompt">Password</string>
+    <string name="btn_login">Log In</string>
+    <string name="register_link">New Here? Click to Register</string>
+
+    <!-- activity_profile -->
+
+    <!-- activity_register -->
+    <string name="new_account_label">Create New Account</string>
+    <string name="username_prompt">Username</string>
+    <string name="reg_email_prompt">Email Address</string>
+    <string name="reg_password_prompt">Password</string>
+    <string name="reg_confirmPassword_prompt">Confirm Password</string>
+    <string name="btn_register">Register</string>
+    <string name="login_link">Already Registered? Login Here</string>
+
+    <!-- fragment_display_profile -->
+    <string name="username_placeholder">{ USERNAME }</string>
+    <string name="email_placeholder">{ EMAIL }</string>
+    <string name="bio_placeholder">[ sample biography ]</string>
+    <string name="btn_editProfile">Edit Profile</string>
+    <string name="profile_stat_placeholder">xxx</string>
+    <string name="btn_logout">Log Out</string>
+    <string name="contributions">Contributions:</string>
+    <string name="reviews">Reviews:</string>
+
+    <!-- fragment_edit_profile -->
+    <string name="edit_label">Edit Profile</string>
+    <string name="edit_instructions">You may edit your account details here. Once you are happy with your changes, press the “Submit Changes” button to lock in your changes.</string>
+    <string name="label_new_username">New Username:</string>
+    <string name="label_new_biography">New Biography:</string>
+    <string name="new_username_prompt">username</string>
+    <string name="new_biography_prompt">biography</string>
+    <string name="btn_submit_changes">Submit Changes</string>
+</resources>

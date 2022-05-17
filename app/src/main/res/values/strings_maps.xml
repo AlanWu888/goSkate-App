@@ -1,0 +1,29 @@
+<resources>
+    <!-- add location activity -->
+
+    <!-- activity_map -->
+
+    <!-- custom_info_window -->
+    <string name="location_title_placeholder">[title]</string>
+    <string name="location_body_placeholder">[Snippet info]</string>
+
+    <!-- fragment_add_locations -->
+    <string name="label_add_park">Add Skate Park</string>
+    <string name="label_add_shop">Add Skate Shop</string>
+    <string name="label_add_spot">Add Skate Spot</string>
+    <string name="label_park_name">What is the name of the Skate Park?</string>
+    <string name="label_shop_name">What is the name of the Skate Shop?</string>
+    <string name="label_spot_name">What is the name of the Skate Spot?</string>
+    <string name="label_location_address">Address:</string>
+    <string name="label_location_desc">Description</string>
+    <string name="label_location_cond">Condition</string>
+    <string name="btn_location_submit">Submit</string>
+    <string name="login_to_continue">Please login via the profile tab to continue</string>
+
+    <!-- fragment_location_type -->
+    <string name="new_location_label">Add a Location to the map</string>
+    <string name="new_location_instructions">Want to add your own location to the map? Choose from one of the options below to continue!</string>
+    <string name="btn_add_park">Add Park</string>
+    <string name="btn_add_shop">Add Shop</string>
+    <string name="btn_add_spot">Add Spot</string>
+</resources>
